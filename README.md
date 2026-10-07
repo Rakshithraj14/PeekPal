@@ -5,6 +5,8 @@ around, watches the field you type in, looks away from passwords and celebrates 
 
 One custom element, no dependencies, works in plain HTML, React, Vue, Svelte or anything else.
 
+**[Try it on the demo site →](https://peek-pal.vercel.app/)**
+
 ![peekpal on its demo page: Mochi the cat peeking over an install card](https://raw.githubusercontent.com/Rakshithraj14/PeekPal/main/docs/screenshots/hero-light.png)
 
 ## Install
@@ -86,7 +88,7 @@ You need 18 frames of the same character: 9 looking directions and 9 moods. Draw
 with the [image prompt](docs/image-prompt.md). The [drawing guide](docs/drawing-guide.md) has the rules
 that keep the character from jumping between frames.
 
-The fastest way is the [demo site](https://github.com/Rakshithraj14/PeekPal): drop the generated image on
+The fastest way is the [demo site](https://peek-pal.vercel.app/#make): drop the generated image on
 the **Add your own** card and download the finished sheets. Or use the Python tools (Pillow only):
 
 ```sh
