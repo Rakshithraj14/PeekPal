@@ -1,5 +1,8 @@
 # peekpal
 
+[![npm](https://img.shields.io/npm/v/peekpal)](https://www.npmjs.com/package/peekpal)
+[![size](https://img.shields.io/bundlephobia/minzip/peekpal)](https://bundlephobia.com/package/peekpal)
+
 A tiny mascot for your website. It follows the cursor, reacts when you poke it, naps when nobody is
 around, watches the field you type in, looks away from passwords and celebrates when a form is sent.
 
