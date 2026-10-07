@@ -5,13 +5,13 @@
   "type": "module",
   "license": "MIT",
   "author": "Rakshith Raj",
-  "homepage": "https://github.com/Rakshithraj14/peekpal#readme",
+  "homepage": "https://github.com/Rakshithraj14/PeekPal#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Rakshithraj14/peekpal.git"
+    "url": "git+https://github.com/Rakshithraj14/PeekPal.git"
   },
   "bugs": {
-    "url": "https://github.com/Rakshithraj14/peekpal/issues"
+    "url": "https://github.com/Rakshithraj14/PeekPal/issues"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

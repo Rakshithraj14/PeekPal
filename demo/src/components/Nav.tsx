@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { GithubLogo } from '@phosphor-icons/react/dist/ssr'
 
-export const GITHUB = 'https://github.com/Rakshithraj14/peekpal'
+export const GITHUB = 'https://github.com/Rakshithraj14/PeekPal'
 
 const links = [
   ['Playground', '#playground'],
