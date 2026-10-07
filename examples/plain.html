@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>peekpal: plain HTML check</title>
+  <script type="module" src="../dist/index.js"></script>
+  <style>
+    body { font: 16px/1.5 system-ui, sans-serif; max-width: 640px; margin: 40px auto; padding: 0 16px }
+    form { display: grid; gap: 12px; margin-top: 24px }
+    input, button { font: inherit; padding: 8px 10px }
+  </style>
+</head>
+<body>
+  <peek-pal id="pal" poses="../demo/public/pals/cat-poses.webp" moods="../demo/public/pals/cat-moods.webp" label="cat" sleep-after="5000"></peek-pal>
+  <form onsubmit="event.preventDefault()">
+    <input id="email" type="email" placeholder="email">
+    <input id="password" type="password" placeholder="password">
+    <button>Sign up</button>
+  </form>
+  <pre id="log"></pre>
+  <script>
+    for (const t of ['peekpal:poke', 'peekpal:sleep', 'peekpal:wake'])
+      pal.addEventListener(t, (e) => log.textContent += `${t} ${JSON.stringify(e.detail ?? '')}\n`)
+  </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+{
+  "name": "peekpal",
+  "version": "0.1.0",
+  "description": "A tiny mascot web component that follows the cursor, reacts to clicks, sleeps when idle and watches your forms.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Rakshith Raj",
+  "homepage": "https://github.com/Rakshithraj14/peekpal#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rakshithraj14/peekpal.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Rakshithraj14/peekpal/issues"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "unpkg": "./dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./react": {
+      "types": "./dist/react.d.ts",
+      "default": "./dist/react.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "./dist/index.js"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "node --test test/*.test.ts",
+    "prepack": "npm run build"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "keywords": [
+    "mascot",
+    "web-component",
+    "custom-element",
+    "sprite",
+    "react"
+  ],
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "react": "^19.3.0",
+    "typescript": "^7.0.2"
+  }
+}

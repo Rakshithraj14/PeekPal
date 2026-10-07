@@ -1,0 +1,48 @@
+name: Submit a pal
+description: Share your character so everyone can use it from the peekpal gallery.
+title: "Pal: "
+labels: ["pal submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for making a pal!
+
+        1. On the demo site, open your pal's card in the gallery and press **Download**.
+        2. Attach the zip below. It holds both sprite sheets and a snippet.
+
+        We check every submission before it goes in the gallery.
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      description: How it should appear in the gallery.
+      placeholder: Biscuit the otter
+    validations:
+      required: true
+  - type: input
+    id: blurb
+    attributes:
+      label: One line about it
+      placeholder: Loves rivers, hates Mondays.
+    validations:
+      required: true
+  - type: textarea
+    id: zip
+    attributes:
+      label: Sprite sheets
+      description: Drag the zip from the Download button here.
+    validations:
+      required: true
+  - type: input
+    id: credit
+    attributes:
+      label: Credit
+      description: Your name or handle, shown next to the pal. Leave empty to stay anonymous.
+  - type: checkboxes
+    id: rights
+    attributes:
+      label: Rights
+      options:
+        - label: I drew or generated this character myself, it is not based on someone else's character, and I'm happy for it to ship with peekpal under the MIT license.
+          required: true

@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+/*
+  Palette sampled from the cat: ginger fur (#f67d38), cream belly (#fee5cb), dark-brown outline.
+  Radius rule: interactive = full pill, cards = 28px, media inside cards = 20px.
+  Z-index scale: nav 40.
+*/
+:root {
+  --bg: #faf3ea;
+  --surface: #fffaf4;
+  --ink: #2b1a13;
+  --muted: #6e584b;
+  --line: #ecdccb;
+  --cocoa: #3a2219;
+  --cocoa-ink: #fbefe2;
+  --ginger: #f67d38;
+  --ginger-ink: #2a1206;
+  --cream: #fee5cb;
+  --shadow: 58 34 25;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15100d;
+    --surface: #1f1814;
+    --ink: #f6ebe0;
+    --muted: #b8a394;
+    --line: #33271f;
+    --cocoa: #2a1e18;
+    --cocoa-ink: #f6ebe0;
+    --cream: #3a2a20;
+    --shadow: 0 0 0;
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-cocoa: var(--cocoa);
+  --color-cocoa-ink: var(--cocoa-ink);
+  --color-ginger: var(--ginger);
+  --color-ginger-ink: var(--ginger-ink);
+  --color-cream: var(--cream);
+  --font-display: var(--font-cabinet), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-satoshi), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
+  --radius-card: 28px;
+  --radius-media: 20px;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 88px }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto } }
+body { background: var(--bg); color: var(--ink) }
+
+::selection { background: var(--ginger); color: var(--ginger-ink) }
+:focus-visible { outline: 2.5px solid var(--ginger); outline-offset: 3px }
+peek-pal { color: var(--ginger) } /* drives the pal's focus ring */
+
+.shadow-soft {
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.5) inset, 0 24px 48px -24px rgb(var(--shadow) / 0.35);
+}
