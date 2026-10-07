@@ -29,6 +29,14 @@ export const characters: Character[] = [
     moods: '/pals/lloyd-moods.webp',
     frames: '/make/lloyd-frames.webp',
   },
+  {
+    id: 'milo',
+    name: 'Milo the squirrel',
+    blurb: 'A cute chibi squirrel. Submitted by @rakshith-gpu.',
+    poses: '/pals/milo-poses.webp',
+    moods: '/pals/milo-moods.webp',
+    colourOnly: true,
+  },
 ]
 
 /** Made with tools/stylize.py from each character's frames. */
