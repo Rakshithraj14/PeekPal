@@ -40,7 +40,7 @@ export const characters: Character[] = [
   {
     id: 'pikachu',
     name: "Pikachu",
-    blurb: "Pika pika",
+    blurb: "Pika pika. Submitted by @gamandeepsingh.",
     poses: '/pals/pikachu-poses.webp',
     moods: '/pals/pikachu-moods.webp',
     colourOnly: true,
