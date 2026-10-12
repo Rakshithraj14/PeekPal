@@ -45,6 +45,14 @@ export const characters: Character[] = [
     moods: '/pals/pikachu-moods.webp',
     colourOnly: true,
   },
+  {
+    id: 'harry-potter',
+    name: "Harry Potter",
+    blurb: "Harry Potter Mascott. Submitted by @gamandeepsingh.",
+    poses: '/pals/harry-potter-poses.webp',
+    moods: '/pals/harry-potter-moods.webp',
+    colourOnly: true,
+  },
 ]
 
 /** Made with tools/stylize.py from each character's frames. */
