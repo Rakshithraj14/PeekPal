@@ -37,6 +37,14 @@ export const characters: Character[] = [
     moods: '/pals/milo-moods.webp',
     colourOnly: true,
   },
+  {
+    id: 'pikachu',
+    name: "Pikachu",
+    blurb: "Pika pika",
+    poses: '/pals/pikachu-poses.webp',
+    moods: '/pals/pikachu-moods.webp',
+    colourOnly: true,
+  },
 ]
 
 /** Made with tools/stylize.py from each character's frames. */
