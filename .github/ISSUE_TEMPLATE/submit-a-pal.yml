@@ -38,7 +38,7 @@ body:
     id: credit
     attributes:
       label: Credit
-      description: Your name or handle, shown next to the pal. Leave empty to stay anonymous.
+      description: Your name or handle, shown next to the pal. Leave empty to use your GitHub username.
   - type: checkboxes
     id: rights
     attributes:

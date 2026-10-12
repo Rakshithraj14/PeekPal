@@ -51,8 +51,11 @@ def main():
     name, blurb, credit = line("Name")[:40], line("One line about it")[:140], line("Credit")
     if not name or not blurb:
         fail("The Name and One line fields are both needed.")
-    if credit and credit != "_No response_":
-        blurb += f" By {credit[:40]}."
+    author = os.environ.get("ISSUE_AUTHOR")
+    if credit in ("", "_No response_"):
+        credit = f"@{author}" if author else ""
+    if credit:
+        blurb = blurb.rstrip(".") + f". Submitted by {credit[:40]}."
 
     url = re.search(r"https://github\.com/user-attachments/files/\d+/[\w.-]+\.zip", f.get("Sprite sheets", ""))
     if not url:
