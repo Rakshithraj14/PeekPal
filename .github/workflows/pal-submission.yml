@@ -1,0 +1,65 @@
+# Turns a "Submit a pal" issue into a pull request that adds the pal to the demo gallery.
+# Repo setting needed: Settings > Actions > General > "Allow GitHub Actions to create and approve pull requests".
+name: Pal submission
+
+on:
+  issues:
+    types: [opened, edited, labeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: pal-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
+jobs:
+  pr:
+    if: github.event.issue.state == 'open' && (contains(github.event.issue.labels.*.name, 'pal submission') || startsWith(github.event.issue.title, 'Pal:'))
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      ISSUE_NUMBER: ${{ github.event.issue.number }}
+      ISSUE_BODY: ${{ github.event.issue.body }}
+      ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: pip install pillow
+
+      - id: add
+        run: python tools/add-pal.py
+
+      - name: Open or update the pull request
+        env:
+          PAL_ID: ${{ steps.add.outputs.id }}
+          PAL_NAME: ${{ steps.add.outputs.name }}
+        run: |
+          branch="pal/issue-$ISSUE_NUMBER"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add demo
+          git commit -m "Gallery: add $PAL_NAME" -m "Submitted by @$ISSUE_AUTHOR in #$ISSUE_NUMBER."
+          git push -f origin "$branch"
+          if ! gh pr view "$branch" --json number >/dev/null 2>&1; then
+            gh pr create --head "$branch" --title "Gallery: add $PAL_NAME" \
+              --body "Adds **$PAL_NAME** (\`$PAL_ID\`) from #$ISSUE_NUMBER by @$ISSUE_AUTHOR. Check the Vercel preview, then merge.
+
+          Closes #$ISSUE_NUMBER"
+          fi
+
+      - name: Explain what went wrong
+        if: failure() && steps.add.outputs.error
+        env:
+          MSG: ${{ steps.add.outputs.error }}
+        run: |
+          gh issue comment "$ISSUE_NUMBER" --body "Thanks for the pal! The automatic check couldn't add it yet: $MSG
+
+          Edit this issue to fix it and the check runs again."
